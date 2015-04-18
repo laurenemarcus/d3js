@@ -1,0 +1,74 @@
+https://www.dashingd3js.com/using-data-bound-to-dom-elements
+
+
+================================================================
+
+<svg width="50" height="50">
+  <circle cx="25" cy="25" r="25" fill="purple">
+</svg>
+
+================================================================
+
+d3.select("body")
+.append("svg")
+.attr("width", 50)
+.attr("height", 50)
+.append("circle")
+.attr("cx", 25)
+.attr("cy", 25)
+.attr("r", 25)
+.style("fill", "purple");
+
+================================================================
+
+var bodySelection = d3.select("body");
+
+var svgSelection = bodySelection.append("svg")
+  .attr("width", 50)
+  .attr("height", 50);
+
+var circleSelection = svgSelection.append("circle")
+  .attr("cx", 25)
+  .attr("cy", 25)
+  .attr("r", 25)
+  .style("fill", "purple");
+
+================================================================
+
+var theData = [ 1, 2, 3 ]
+
+var p = d3.select("body").selectAll("p")
+  .data(theData)
+  .enter()
+  .append("p")
+  .text("hello ");
+
+================================================================
+
+console.log(d3.select("body").data([1]));
+
+================================================================
+
+var theData = [ 1, 2, 3 ]
+
+var p = d3.select("body").selectAll("p")
+  .data(theData)
+  .enter()
+  .append("p")
+  .text("hello ");
+
+console.log(p);
+
+================================================================
+
+this returns the data in the paragraphs:
+
+var theData = [ 1, 2, 3 ]
+
+var p = d3.select("body").selectAll("p")
+  .data(theData)
+  .enter()
+  .append("p")
+  .text( function (d) { return d; } );
+
+================================================================
